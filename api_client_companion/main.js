@@ -21,8 +21,23 @@ $(document).ready(function(){
               $(company_loop[j]).delay(50*j).fadeIn(500);
           }
         }
-
       }
     });
   });
+  // $(document).on("click", "a", function(event) {
+  //   event.preventDefault();
+  //
+  //   $.ajax({
+  //     url: "http://localhost:3000/companies/",
+  //     data: {company: { likes: 1} },
+  //     method: "PATCH",
+  //     error: function(){
+  //         alert("Something went wrong!");
+  //     },
+  //     success: function(data) {
+  //       console.log("liked");
+  //     }
+  //   });
+  // });
+
 });

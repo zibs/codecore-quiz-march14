@@ -6,7 +6,9 @@
 5.times do
   c = Company.create(name: Faker::Company.name)
   4.times do
-    c.product = Product.create(name: Faker::Commerce.product_name)
+    g = Product.new(name: Faker::Commerce.product_name)
+    g.company = c
+    g.save
   end
 end
 
