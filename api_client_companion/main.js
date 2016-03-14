@@ -16,9 +16,13 @@ $(document).ready(function(){
           // setInterval(function() {
             $("#companies-wrapper").append(renderedHtml);
           // }, 50);
+          var company_loop = $(".post-wrap");
+          for (var j = 0; j < company_loop.length; j++) {
+              $(company_loop[j]).delay(50*j).fadeIn(500);
+          }
         }
+
       }
     });
-    $(".post-wrap").fadeIn(500);
   });
 });
