@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  h1.text-lg-center Create New Company 
+  form(action="/companies" method="POST")
+    .form-group(class="#{errors.title ? 'has-error' : ''}")
+      label(for="name") Name 
+      input(type="text" id="name" name="name" class="form-control")
+      hr
+    input(type="submit" value="Create Company" class="btn btn-primary-outline btn-block")  
+      
+  
