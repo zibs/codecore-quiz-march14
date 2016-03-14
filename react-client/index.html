@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>react</title>
+  <script src = 'react.js'></script>
+  <script src = 'react-dom.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<style>
+
+</style>
+</head>
+<body>
+
+  <div id="container"></div>
+
+    <script type = "text/babel">
+      var Company = React.createClass({
+        render: function(){
+          return  <div>
+                    <h2>Company: {this.props.title}</h2>
+                    <p>Products: {this.props.products.join(", ")}</p>
+                  </div>
+        }
+      });
+      var CompanionApp = React.createClass({
+        getInitialState: function(){
+          return { companies: [] };
+        },
+        componentDidMount: function() {
+          $.ajax({
+            url: "http://localhost:3000/api/v1/companies",
+            method: "GET",
+            error: function() {
+              alert("Error! Please try again later.");
+            },
+            success: function(data){
+              this.setState({companies: data.companies})
+            }.bind(this)
+          })
+        },
+        companiesDisplay(){
+          if(this.state.companies.length > 0) {
+            return this.state.companies.map(function(company, index){
+              return <Company title={company.name} products={company.products} key={index} />;
+              });
+          } else {
+            return "Loading...";
+          }
+        },
+        render: function(){
+          return <div>
+                  <h1>Welcome to the Company App</h1>
+                  {this.companiesDisplay()}
+                 </div>
+        }
+      });
+
+      ReactDOM.render(<CompanionApp />, document.getElementById('container'));
+    </script>
+
+</body>
+</html>
