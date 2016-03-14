@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>API Client Companion</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  <script src = "mustache.min.js"></script>
+  <script src = "main.js"></script>
+</head>
+<body>
+  <script id="company_template" type="x-tmpl-mustache">
+    <section class="post-wrap">
+      <h3 class = "text-center" data-id = "{{id}}">Company: {{ name }}</h3>
+      <p>Products: {{ products }}</p>
+    </section>
+  </script>
+  <div class ="fetch-company text-center">
+    <a id = "fetch-companies" href="javascript:void(0);" class="btn btn-primary-outline btn-block">fetch companies!</a>
+  </div>
+  <main class = "col-md-8 col-md-offset-2" id="companies-wrapper">
+
+  </main>
+</body>
+</html>

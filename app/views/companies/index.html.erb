@@ -1,0 +1,7 @@
+<h1>All Companies (<%= @companies.length %>)</h1>
+<% if @companies %>
+  <% @companies.each do |company| %>
+    <h4>Company: <%= company.name %> <span class="like"><%= link_to fa_icon("thumbs-up"), company_path(company, company: { likes: 0 }), method: :patch %></span> <span class="text-muted">(<%= company.likes %> likes)</span></h4>
+    <p>Products: <%= company.products.map {|p| p.name }.join(", ") %></p>
+    <% end %>
+<% end %>
