@@ -13,7 +13,6 @@ class CompaniesController < ApplicationController
     @company.update(likes: @company.likes += 1) ? (redirect_to root_path ): (redirect_to root_path  )
   end
 
-
     private
 
      def company_params
